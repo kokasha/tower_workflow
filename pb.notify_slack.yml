@@ -1,6 +1,19 @@
 ---
-- name: Send SlackNotify
+- name: Create in-memory Group
   hosts: all
+  ignore_errors: true
+  tasks:
+    
+    - name: Create In Memory Group
+      add_host:
+        name: "{{ item }}"
+        group: 'failed_hosts'
+      when: _failed_status != 'pass'
+      loop: "{{ play_hosts }}"
+
+
+- name: Send SlackNotify
+  hosts: failed_hosts
   vars:
     ansible_connection: local
   tasks:

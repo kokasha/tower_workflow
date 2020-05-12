@@ -1,15 +1,29 @@
 ---
   - name: Run Normal Tasks
     hosts: all
+    force_handlers: true
     vars:
       ansible_connection: local
     tasks:
+      - name: FACT >> Set Status
+        set_fact:
+          _failed_status: 'not_set'
+          cacheable: yes
+
       - name: Debug >> FAIL for rhel01
         debug:
           msg: "{{ inventory_hostname }}"
         failed_when: " 'rhel01' in inventory_hostname "
+        changed_when: true
 
       - name: Debug >> FAIL for rhel02
         debug:
           msg: "{{ inventory_hostname }}"
         failed_when: " 'rhel02' in inventory_hostname "
+        changed_when: true
+
+      - name: Set Flag
+        set_fact:
+          _failed_status: 'pass'
+          cacheable: yes
+
