@@ -1,7 +1,7 @@
 ---
   - name: Run Normal Tasks
     hosts: all
-    force_handlers: true
+    gather_facts: no
     vars:
       ansible_connection: local
     tasks:
