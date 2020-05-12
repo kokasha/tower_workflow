@@ -1,0 +1,15 @@
+---
+  - name: Run Normal Tasks
+    hosts: all
+    vars:
+      ansible_connection: local
+    tasks:
+      - name: Debug >> FAIL for rhel01
+        debug:
+          msg: "{{ inventory_hostname }}"
+        failed_when: " 'rhel01' in inventory_hostname "
+
+      - name: Debug >> FAIL for rhel02
+        debug:
+          msg: "{{ inventory_hostname }}"
+        failed_when: " 'rhel02' in inventory_hostname "

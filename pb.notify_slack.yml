@@ -1,0 +1,12 @@
+---
+- name: Send SlackNotify
+  hosts: all
+  vars:
+    ansible_connection: local
+  tasks:
+
+    - name: test slack
+      slack:
+        username: 'AWX'
+        msg: "Hello from AWX"
+        token: "TKA7NDKT4/BQV99CWSV/YBTnlxmy11u3RmlhnbNEzXWl"
