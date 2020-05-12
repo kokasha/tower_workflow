@@ -4,9 +4,12 @@
   vars:
     ansible_connection: local
   tasks:
+    - name: DEBUG >> Output all Hosts
+      debug:
+        msg: "{{ inventory_hostname }}"
 
     - name: test slack
       slack:
         username: 'AWX'
-        msg: "Hello from AWX"
+        msg: "Failed Notification for Host {{ inventory_hostname }}"
         token: "TKA7NDKT4/BQV99CWSV/YBTnlxmy11u3RmlhnbNEzXWl"
