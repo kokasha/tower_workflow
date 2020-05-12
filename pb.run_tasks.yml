@@ -14,13 +14,11 @@
         debug:
           msg: "{{ inventory_hostname }}"
         failed_when: " 'rhel01' in inventory_hostname "
-        changed_when: true
 
       - name: Debug >> FAIL for rhel02
         debug:
           msg: "{{ inventory_hostname }}"
         failed_when: " 'rhel02' in inventory_hostname "
-        changed_when: true
 
       - name: Set Flag
         set_fact:

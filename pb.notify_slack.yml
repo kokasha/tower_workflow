@@ -3,12 +3,14 @@
   hosts: all
   gather_facts: no
   tasks:
+    - debug:
+        msg: "{{ _failed_status }}"
     
     - name: Create In Memory Group
       add_host:
         name: "{{ item }}"
         group: 'failed_hosts'
-      when: _failed_status != 'pass'
+      when: hostvars[item]._failed_status != 'pass'
       loop: "{{ play_hosts }}"
 
 
