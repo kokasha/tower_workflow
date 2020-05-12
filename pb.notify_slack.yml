@@ -1,7 +1,6 @@
 ---
 - name: Create in-memory Group
   hosts: all
-  ignore_errors: true
   tasks:
     
     - name: Create In Memory Group
