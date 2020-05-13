@@ -5,6 +5,8 @@
     vars:
       ansible_connection: local
     tasks:
+      - debug: var=vars
+      
       - name: FACT >> Set Status
         set_fact:
           _failed_status: 'not_set'
