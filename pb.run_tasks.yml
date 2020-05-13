@@ -8,7 +8,7 @@
       - name: FACT >> Set Status
         set_fact:
           _failed_status: 'not_set'
-          cacheable: yes
+          # cacheable: yes
 
       - name: Debug >> FAIL for rhel01
         debug:
@@ -23,5 +23,5 @@
       - name: Set Flag
         set_fact:
           _failed_status: 'pass'
-          cacheable: yes
+          # cacheable: yes
 
